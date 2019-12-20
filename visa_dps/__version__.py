@@ -1,0 +1,10 @@
+__title__ = 'visa_dps'
+__description__ = 'Python DPS library'
+__url__ = 'https://requests.readthedocs.io'
+__version__ = '0.01'
+__build__ = 0x022200
+__author__ = 'Lee Preimesberger'
+__author_email__ = 'lee@capricallctx.com'
+__license__ = 'MIT'
+__copyright__ = 'Copyright 2019 Lee Preimesberger / Caprica LLC'
+__cake__ = u'\u2728 \U0001f370 \u2728'

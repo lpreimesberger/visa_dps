@@ -1,0 +1,7 @@
+# no pycharm
+.idea
+# no user passwords plz :)
+config.py
+# no certs or keys
+*.pem
+*.crt
