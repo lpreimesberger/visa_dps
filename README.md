@@ -64,8 +64,13 @@ session = VisaSession(Config.username, Config.password, be_noisy=True, use_sandb
 
 All URIs are relative to *https://sandbox.api.visa.com* by default.
 
-| Method | HTTP request | Description |
+Note a card_id is not a card number - it's a GUID that maps to account into.
+
+| Function | Purpose | Endpoint |
 | ------------- | ------------- | -------------
+|dps_get_balances|gets current balance for a card_id|.../%s/accounts?lookUpBalances=true|
+|dps_cardstatus|return card_id active status (0 is active?)|.../%s/cardstatus|
+|dps_getcardid|generate card_id for card number|../cards|
 
 
 ##License
