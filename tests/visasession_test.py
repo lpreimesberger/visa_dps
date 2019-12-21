@@ -1,20 +1,48 @@
+# -*- coding: utf-8 -*-
+"""
+Visa DPS Library
+:copyright: (c) 2019 by Lee Preimesberger / Caprica LLC
+:license: MIT, see LICENSE for more details.
+"""
 import unittest
-import visa_dps
+from visa_dps.VisaDPS import *
 from visa_dps.VisaSession import VisaSession
-
-username = 'DMO62GRKXC2WH51HRJEB213s8uyurSp3vnvJzGwALxvGSLSLg'
-password = 'r4Guxh565P2BIvyK5WZpuX'
-cert_file = 'cert.pem'
-key_file = 'rosarius.pem'
-ssl_ca_cer = 'DigiCertGlobalRootCA.pem'
+from config import Config
 
 
 class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        my_session = VisaSession(username, password, be_noisy=True, use_sandbox=True,
+    def test_cardstatus_404(self):
+        print("Expect a 404")
+        my_session = VisaSession(Config.username, Config.password, be_noisy=True, use_sandbox=True,
                                  client_cert="../cert.pem", client_key="../rosarius.pem")
-        output = my_session.get("/dcas/cardservices/v1/cards/xxxx/cardstatus")
+        output = dps_cardstatus(my_session, "not_a_key")
         print(output)
+        self.assertTrue(output.status_code, 404)
+
+    def test_cardstatus_200(self):
+        print("Expect a 200")
+        my_session = VisaSession(Config.username, Config.password, be_noisy=True, use_sandbox=True,
+                                 client_cert="../cert.pem", client_key="../rosarius.pem")
+        output = dps_cardstatus(my_session, "7a353971-l4uo-9877-algd-lz1fe25349i9")
+        print(output)
+        self.assertTrue(output.status_code, 200)
+
+    def test_getbalance_200(self):
+        print("Expect a 200")
+        my_session = VisaSession(Config.username, Config.password, be_noisy=True, use_sandbox=True,
+                                 client_cert="../cert.pem", client_key="../rosarius.pem")
+        output = dps_get_balances(my_session, "7a353971-l4uo-9877-algd-lz1fe25349i9")
+        print(output)
+        self.assertIsNot(output, {})
+
+
+    def test_getcardid_200(self):
+        print("Expect a 200 and a valid string of some sort")
+        my_session = VisaSession(Config.username, Config.password, be_noisy=True, use_sandbox=True,
+                                 client_cert="../cert.pem", client_key="../rosarius.pem")
+        output = dps_getcardid(my_session, "4169334953890037")
+        print(output)
+        self.assertIsNot(output, "")
 
 
 if __name__ == '__main__':
