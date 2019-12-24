@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.7.2" />
+<title>visa_dps.VisaDPS API documentation</title>
+<meta name="description" content="Visa DPS Library
+:copyright: (c) 2019 by Lee Preimesberger / Caprica LLC
+:license: MIT, see LICENSE for more details." />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>visa_dps.VisaDPS</code></h1>
+</header>
+<section id="section-intro">
+<p>Visa DPS Library
+:copyright: (c) 2019 by Lee Preimesberger / Caprica LLC
+:license: MIT, see LICENSE for more details.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+&#34;&#34;&#34;
+Visa DPS Library
+:copyright: (c) 2019 by Lee Preimesberger / Caprica LLC
+:license: MIT, see LICENSE for more details.
+&#34;&#34;&#34;
+import json
+import logging
+import base64
+from requests import Response
+from visa_dps.VisaSession import VisaSession
+from datetime import datetime
+from typing import List
+
+
+class Account:
+    account_alias_id: str
+    account_number: str
+    account_type_code: str
+    account_type_description: None
+    institution_id: None
+    account_indicator_code: None
+    account_indicator_description: None
+    balances: None
+    is_funding: bool
+    is_funding_computed: bool
+    account_opened_date: datetime
+
+    def __init__(self, account_alias_id: str, account_number: str, account_type_code: str, account_type_description: None, institution_id: None, account_indicator_code: None, account_indicator_description: None, balances: None, is_funding: bool, is_funding_computed: bool, account_opened_date: datetime) -&gt; None:
+        self.account_alias_id = account_alias_id
+        self.account_number = account_number
+        self.account_type_code = account_type_code
+        self.account_type_description = account_type_description
+        self.institution_id = institution_id
+        self.account_indicator_code = account_indicator_code
+        self.account_indicator_description = account_indicator_description
+        self.balances = balances
+        self.is_funding = is_funding
+        self.is_funding_computed = is_funding_computed
+        self.account_opened_date = account_opened_date
+
+
+class Card:
+    card_id: str
+    pan: str
+    accounts: List[Account]
+
+    def __init__(self, card_id: str, pan: str, accounts: List[Account]) -&gt; None:
+        self.card_id = card_id
+        self.pan = pan
+        self.accounts = accounts
+
+
+def _unpack_account(output: Response):
+    &#34;&#34;&#34;Internal function to unpack the struct returned by most GET calls for accounts
+
+       Args:
+            output: Response from VisaSession
+
+        Returns:
+            Account info or {}
+
+        Raises:
+            None    &#34;&#34;&#34;
+    if output.status_code is not 200:
+        print(&#34;Failed %s&#34; % output.url)
+        return {}
+    # this is a Card object above that is wrapped in another junk object
+    account = json.loads(output.text)
+    try:
+        return account[&#39;resource&#39;][&#39;accounts&#39;][0]
+    except KeyError:
+        return {}
+
+
+def dps_get_balances(session: VisaSession, card_id: str):
+    &#34;&#34;&#34;Get balances for given card_id
+
+       Args:
+            session: initialized VisaSession
+            card_id: card_id to get info on, this is _NOT_ a card number (4242 4242 4242 4242)
+
+        Returns:
+            Account info or {}
+
+        Raises:
+            None    &#34;&#34;&#34;
+    return _unpack_account(session.get(&#34;/dcas/cardservices/v1/cards/%s/accounts?lookUpBalances=true&#34; % card_id))
+
+
+def dps_get_card_details(session: VisaSession, card_id: str):
+    &#34;&#34;&#34;Get details for given card_id
+
+       Args:
+            session: initialized VisaSession
+            card_id: card_id to get info on, this is _NOT_ a card number (4242 4242 4242 4242)
+
+        Returns:
+            Account info or {}
+
+        Raises:
+            None    &#34;&#34;&#34;
+    url_packed = &#34;/dcas/cardservices/v1/cards/%s&#34; % card_id
+    return _unpack_account(session.get(url_packed))
+
+
+def dps_cardstatus(session: VisaSession, card_id: str):
+    &#34;&#34;&#34;Get status for given card_id
+
+       Args:
+            session: initialized VisaSession
+            card_id: card_id to get info on, this is _NOT_ a card number (4242 4242 4242 4242)
+
+        Returns:
+            Object with some opaque info - the resource.cardStatus is &#39;optional&#39; and is an int?   no idea what it means
+
+        Raises:
+            None    &#34;&#34;&#34;
+    output = session.get(&#34;/dcas/cardservices/v1/cards/%s/cardstatus&#34; % card_id)
+    return output
+
+
+def dps_getcardid(session: VisaSession, card_number: str):
+    &#34;&#34;&#34;Get card_id for given card number
+
+       Args:
+            session: initialized VisaSession
+            card_number: card number (4242 4242 4242 4242)
+
+        Returns:
+            Text card_id if available, &#34;&#34; else.  API allows multiple but that&#39;s weird.
+
+        Raises:
+            None    &#34;&#34;&#34;
+    pan = {&#34;cardIdModel&#34;: [
+        {
+            &#34;pan&#34;: card_number,
+            &#34;lookUpBalances&#34;: True
+        },
+    ]}
+    output = session.post(&#34;/dcas/cardservices/v1/cards&#34;, pan)
+    if output.status_code is not 200:
+        print(&#34;Whoops&#34;)
+        print(output)
+        return &#34;&#34;
+    # this is a Card object above that is wrapped in another junk object
+    card = json.loads(output.text)
+    try:
+        return card[&#39;resource&#39;][&#39;cards&#39;][0][&#39;cardId&#39;]
+    except KeyError:
+        return &#34;&#34;
+
+
+def dps_set_status(session: VisaSession, card_id: str, active_state: bool):
+    &#34;&#34;&#34;Documentation is crummy for this - Active to enable, Inactive to not?
+
+       Args:
+            session: initialized VisaSession
+            card_id: card id from mapping
+            active_state: turn off or on
+
+        Returns:
+            Text card_id if available, &#34;&#34; else.  API allows multiple but that&#39;s weird.
+
+        Raises:
+            None    &#34;&#34;&#34;
+    mode = &#34;Active&#34;
+    if active_state is not True:
+        mode = &#34;Inactive&#34;
+    pan = {
+            &#34;cardStatus&#34;: mode
+        }
+
+    output = session.post(&#34;/dcas/cardservices/v1/cards/%s/cardstatus&#34; % card_id, pan)
+    if output.status_code is not 200:
+        print(&#34;Whoops&#34;)
+        print(output)
+        return &#34;&#34;
+    # this is a Card object above that is wrapped in another junk object
+    card = json.loads(output.text)
+    try:
+        return card[&#39;resource&#39;][&#39;cards&#39;][0][&#39;cardId&#39;]
+    except KeyError:
+        return &#34;&#34;
+
+
+def dps_get_transactions(session: VisaSession, card_id: str, page=None, rows_on_page=10, alias_id=None):
+    &#34;&#34;&#34;Get transactions for the card (slow, talky)
+
+       Args:
+            session: initialized VisaSession
+            card_id: card id from mapping function
+            page: page of results
+            rows_on_page: results per page (default 10)
+            alias_id: card alias for subquery only
+
+        Returns:
+            array of Transactions or []
+
+        Raises:
+            None    &#34;&#34;&#34;
+    url_text = &#34;/dcas/cardservices/v1/cards/%s/transactions?rowsOnPage=%s&#34; % (card_id, rows_on_page)
+    if page is not None:
+        url_text = url_text + &#34;&amp;indexRow=&#34; + page
+    if alias_id is not None:
+        url_text = url_text + &#34;&amp;accountAliasId=&#34; + alias_id
+    output = session.get(url_text)
+    if output.status_code is not 200:
+        print(&#34;Whoops&#34;)
+        print(output)
+        return []
+    # this is a Card object above that is wrapped in another junk object
+    card = json.loads(output.text)
+    try:
+        return card[&#39;resource&#39;][&#39;transactions&#39;]
+    except KeyError:
+        return []
+
+
+# i dont need these - if anyone else really wants we can do.  mobile already know who they are
+# not implementing https://sandbox.api.visa.com/dcas/cardservices/v1/cards/{cardId}/cardverification
+# not implementing https://sandbox.api.visa.com/dcas/cardservices/v1/cards/{cardId}/cardholderdetails
+# doesnt seem useful (dont understand use case - issuers?)
+# https://sandbox.api.visa.com/dcas/cardservices/v1/cards/{cardId}/cardholderdetails
+# https://sandbox.api.visa.com/dcas/cardservices/v1/cards/{cardId}/notifications/otpverification</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="visa_dps.VisaDPS.dps_cardstatus"><code class="name flex">
+<span>def <span class="ident">dps_cardstatus</span></span>(<span>session, card_id)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Get status for given card_id</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>session</code></strong></dt>
+<dd>initialized VisaSession</dd>
+<dt><strong><code>card_id</code></strong></dt>
+<dd>card_id to get info on, this is <em>NOT</em> a card number (4242 4242 4242 4242)</dd>
+</dl>
+<p>Returns:
+Object with some opaque info - the resource.cardStatus is 'optional' and is an int?
+no idea what it means</p>
+<p>Raises:
+None</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dps_cardstatus(session: VisaSession, card_id: str):
+    &#34;&#34;&#34;Get status for given card_id
+
+       Args:
+            session: initialized VisaSession
+            card_id: card_id to get info on, this is _NOT_ a card number (4242 4242 4242 4242)
+
+        Returns:
+            Object with some opaque info - the resource.cardStatus is &#39;optional&#39; and is an int?   no idea what it means
+
+        Raises:
+            None    &#34;&#34;&#34;
+    output = session.get(&#34;/dcas/cardservices/v1/cards/%s/cardstatus&#34; % card_id)
+    return output</code></pre>
+</details>
+</dd>
+<dt id="visa_dps.VisaDPS.dps_get_balances"><code class="name flex">
+<span>def <span class="ident">dps_get_balances</span></span>(<span>session, card_id)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Get balances for given card_id</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>session</code></strong></dt>
+<dd>initialized VisaSession</dd>
+<dt><strong><code>card_id</code></strong></dt>
+<dd>card_id to get info on, this is <em>NOT</em> a card number (4242 4242 4242 4242)</dd>
+</dl>
+<p>Returns:
+Account info or {}</p>
+<p>Raises:
+None</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dps_get_balances(session: VisaSession, card_id: str):
+    &#34;&#34;&#34;Get balances for given card_id
+
+       Args:
+            session: initialized VisaSession
+            card_id: card_id to get info on, this is _NOT_ a card number (4242 4242 4242 4242)
+
+        Returns:
+            Account info or {}
+
+        Raises:
+            None    &#34;&#34;&#34;
+    return _unpack_account(session.get(&#34;/dcas/cardservices/v1/cards/%s/accounts?lookUpBalances=true&#34; % card_id))</code></pre>
+</details>
+</dd>
+<dt id="visa_dps.VisaDPS.dps_get_card_details"><code class="name flex">
+<span>def <span class="ident">dps_get_card_details</span></span>(<span>session, card_id)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Get details for given card_id</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>session</code></strong></dt>
+<dd>initialized VisaSession</dd>
+<dt><strong><code>card_id</code></strong></dt>
+<dd>card_id to get info on, this is <em>NOT</em> a card number (4242 4242 4242 4242)</dd>
+</dl>
+<p>Returns:
+Account info or {}</p>
+<p>Raises:
+None</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dps_get_card_details(session: VisaSession, card_id: str):
+    &#34;&#34;&#34;Get details for given card_id
+
+       Args:
+            session: initialized VisaSession
+            card_id: card_id to get info on, this is _NOT_ a card number (4242 4242 4242 4242)
+
+        Returns:
+            Account info or {}
+
+        Raises:
+            None    &#34;&#34;&#34;
+    url_packed = &#34;/dcas/cardservices/v1/cards/%s&#34; % card_id
+    return _unpack_account(session.get(url_packed))</code></pre>
+</details>
+</dd>
+<dt id="visa_dps.VisaDPS.dps_get_transactions"><code class="name flex">
+<span>def <span class="ident">dps_get_transactions</span></span>(<span>session, card_id, page=None, rows_on_page=10, alias_id=None)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Get transactions for the card (slow, talky)</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>session</code></strong></dt>
+<dd>initialized VisaSession</dd>
+<dt><strong><code>card_id</code></strong></dt>
+<dd>card id from mapping function</dd>
+<dt><strong><code>page</code></strong></dt>
+<dd>page of results</dd>
+<dt><strong><code>rows_on_page</code></strong></dt>
+<dd>results per page (default 10)</dd>
+<dt><strong><code>alias_id</code></strong></dt>
+<dd>card alias for subquery only</dd>
+</dl>
+<p>Returns:
+array of Transactions or []</p>
+<p>Raises:
+None</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dps_get_transactions(session: VisaSession, card_id: str, page=None, rows_on_page=10, alias_id=None):
+    &#34;&#34;&#34;Get transactions for the card (slow, talky)
+
+       Args:
+            session: initialized VisaSession
+            card_id: card id from mapping function
+            page: page of results
+            rows_on_page: results per page (default 10)
+            alias_id: card alias for subquery only
+
+        Returns:
+            array of Transactions or []
+
+        Raises:
+            None    &#34;&#34;&#34;
+    url_text = &#34;/dcas/cardservices/v1/cards/%s/transactions?rowsOnPage=%s&#34; % (card_id, rows_on_page)
+    if page is not None:
+        url_text = url_text + &#34;&amp;indexRow=&#34; + page
+    if alias_id is not None:
+        url_text = url_text + &#34;&amp;accountAliasId=&#34; + alias_id
+    output = session.get(url_text)
+    if output.status_code is not 200:
+        print(&#34;Whoops&#34;)
+        print(output)
+        return []
+    # this is a Card object above that is wrapped in another junk object
+    card = json.loads(output.text)
+    try:
+        return card[&#39;resource&#39;][&#39;transactions&#39;]
+    except KeyError:
+        return []</code></pre>
+</details>
+</dd>
+<dt id="visa_dps.VisaDPS.dps_getcardid"><code class="name flex">
+<span>def <span class="ident">dps_getcardid</span></span>(<span>session, card_number)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Get card_id for given card number</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>session</code></strong></dt>
+<dd>initialized VisaSession</dd>
+<dt><strong><code>card_number</code></strong></dt>
+<dd>card number (4242 4242 4242 4242)</dd>
+</dl>
+<p>Returns:
+Text card_id if available, "" else.
+API allows multiple but that's weird.</p>
+<p>Raises:
+None</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dps_getcardid(session: VisaSession, card_number: str):
+    &#34;&#34;&#34;Get card_id for given card number
+
+       Args:
+            session: initialized VisaSession
+            card_number: card number (4242 4242 4242 4242)
+
+        Returns:
+            Text card_id if available, &#34;&#34; else.  API allows multiple but that&#39;s weird.
+
+        Raises:
+            None    &#34;&#34;&#34;
+    pan = {&#34;cardIdModel&#34;: [
+        {
+            &#34;pan&#34;: card_number,
+            &#34;lookUpBalances&#34;: True
+        },
+    ]}
+    output = session.post(&#34;/dcas/cardservices/v1/cards&#34;, pan)
+    if output.status_code is not 200:
+        print(&#34;Whoops&#34;)
+        print(output)
+        return &#34;&#34;
+    # this is a Card object above that is wrapped in another junk object
+    card = json.loads(output.text)
+    try:
+        return card[&#39;resource&#39;][&#39;cards&#39;][0][&#39;cardId&#39;]
+    except KeyError:
+        return &#34;&#34;</code></pre>
+</details>
+</dd>
+<dt id="visa_dps.VisaDPS.dps_set_status"><code class="name flex">
+<span>def <span class="ident">dps_set_status</span></span>(<span>session, card_id, active_state)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Documentation is crummy for this - Active to enable, Inactive to not?</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>session</code></strong></dt>
+<dd>initialized VisaSession</dd>
+<dt><strong><code>card_id</code></strong></dt>
+<dd>card id from mapping</dd>
+<dt><strong><code>active_state</code></strong></dt>
+<dd>turn off or on</dd>
+</dl>
+<p>Returns:
+Text card_id if available, "" else.
+API allows multiple but that's weird.</p>
+<p>Raises:
+None</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dps_set_status(session: VisaSession, card_id: str, active_state: bool):
+    &#34;&#34;&#34;Documentation is crummy for this - Active to enable, Inactive to not?
+
+       Args:
+            session: initialized VisaSession
+            card_id: card id from mapping
+            active_state: turn off or on
+
+        Returns:
+            Text card_id if available, &#34;&#34; else.  API allows multiple but that&#39;s weird.
+
+        Raises:
+            None    &#34;&#34;&#34;
+    mode = &#34;Active&#34;
+    if active_state is not True:
+        mode = &#34;Inactive&#34;
+    pan = {
+            &#34;cardStatus&#34;: mode
+        }
+
+    output = session.post(&#34;/dcas/cardservices/v1/cards/%s/cardstatus&#34; % card_id, pan)
+    if output.status_code is not 200:
+        print(&#34;Whoops&#34;)
+        print(output)
+        return &#34;&#34;
+    # this is a Card object above that is wrapped in another junk object
+    card = json.loads(output.text)
+    try:
+        return card[&#39;resource&#39;][&#39;cards&#39;][0][&#39;cardId&#39;]
+    except KeyError:
+        return &#34;&#34;</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="visa_dps.VisaDPS.Account"><code class="flex name class">
+<span>class <span class="ident">Account</span></span>
+<span>(</span><span>account_alias_id, account_number, account_type_code, account_type_description, institution_id, account_indicator_code, account_indicator_description, balances, is_funding, is_funding_computed, account_opened_date)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Account:
+    account_alias_id: str
+    account_number: str
+    account_type_code: str
+    account_type_description: None
+    institution_id: None
+    account_indicator_code: None
+    account_indicator_description: None
+    balances: None
+    is_funding: bool
+    is_funding_computed: bool
+    account_opened_date: datetime
+
+    def __init__(self, account_alias_id: str, account_number: str, account_type_code: str, account_type_description: None, institution_id: None, account_indicator_code: None, account_indicator_description: None, balances: None, is_funding: bool, is_funding_computed: bool, account_opened_date: datetime) -&gt; None:
+        self.account_alias_id = account_alias_id
+        self.account_number = account_number
+        self.account_type_code = account_type_code
+        self.account_type_description = account_type_description
+        self.institution_id = institution_id
+        self.account_indicator_code = account_indicator_code
+        self.account_indicator_description = account_indicator_description
+        self.balances = balances
+        self.is_funding = is_funding
+        self.is_funding_computed = is_funding_computed
+        self.account_opened_date = account_opened_date</code></pre>
+</details>
+</dd>
+<dt id="visa_dps.VisaDPS.Card"><code class="flex name class">
+<span>class <span class="ident">Card</span></span>
+<span>(</span><span>card_id, pan, accounts)</span>
+</code></dt>
+<dd>
+<section class="desc"></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Card:
+    card_id: str
+    pan: str
+    accounts: List[Account]
+
+    def __init__(self, card_id: str, pan: str, accounts: List[Account]) -&gt; None:
+        self.card_id = card_id
+        self.pan = pan
+        self.accounts = accounts</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="visa_dps" href="index.html">visa_dps</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="visa_dps.VisaDPS.dps_cardstatus" href="#visa_dps.VisaDPS.dps_cardstatus">dps_cardstatus</a></code></li>
+<li><code><a title="visa_dps.VisaDPS.dps_get_balances" href="#visa_dps.VisaDPS.dps_get_balances">dps_get_balances</a></code></li>
+<li><code><a title="visa_dps.VisaDPS.dps_get_card_details" href="#visa_dps.VisaDPS.dps_get_card_details">dps_get_card_details</a></code></li>
+<li><code><a title="visa_dps.VisaDPS.dps_get_transactions" href="#visa_dps.VisaDPS.dps_get_transactions">dps_get_transactions</a></code></li>
+<li><code><a title="visa_dps.VisaDPS.dps_getcardid" href="#visa_dps.VisaDPS.dps_getcardid">dps_getcardid</a></code></li>
+<li><code><a title="visa_dps.VisaDPS.dps_set_status" href="#visa_dps.VisaDPS.dps_set_status">dps_set_status</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="visa_dps.VisaDPS.Account" href="#visa_dps.VisaDPS.Account">Account</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.VisaDPS.Card" href="#visa_dps.VisaDPS.Card">Card</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.2</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>

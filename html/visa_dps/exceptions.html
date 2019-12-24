@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.7.2" />
+<title>visa_dps.exceptions API documentation</title>
+<meta name="description" content="~~~~~~~~~~~~~~~~~~~
+This module contains the set of exceptions." />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+<link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+<style>.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{font-weight:bold}#index h4 + ul{margin-bottom:.6em}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>visa_dps.exceptions</code></h1>
+</header>
+<section id="section-intro">
+<p>~~~~~~~~~~~~~~~~~~~
+This module contains the set of exceptions.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+&#34;&#34;&#34;
+~~~~~~~~~~~~~~~~~~~
+This module contains the set of exceptions.
+&#34;&#34;&#34;
+from urllib3.exceptions import HTTPError as BaseHTTPError
+
+class RequestException(IOError):
+    &#34;&#34;&#34;There was an ambiguous exception that occurred while handling your
+    request.
+    &#34;&#34;&#34;
+
+    def __init__(self, *args, **kwargs):
+        &#34;&#34;&#34;Initialize RequestException with `request` and `response` objects.&#34;&#34;&#34;
+        response = kwargs.pop(&#39;response&#39;, None)
+        self.response = response
+        self.request = kwargs.pop(&#39;request&#39;, None)
+        if (response is not None and not self.request and
+                hasattr(response, &#39;request&#39;)):
+            self.request = self.response.request
+        super(RequestException, self).__init__(*args, **kwargs)
+
+
+class HTTPError(RequestException):
+    &#34;&#34;&#34;An HTTP error occurred.&#34;&#34;&#34;
+
+
+class ConnectionError(RequestException):
+    &#34;&#34;&#34;A Connection error occurred.&#34;&#34;&#34;
+
+
+class ProxyError(ConnectionError):
+    &#34;&#34;&#34;A proxy error occurred.&#34;&#34;&#34;
+
+
+class SSLError(ConnectionError):
+    &#34;&#34;&#34;An SSL error occurred.&#34;&#34;&#34;
+
+
+class Timeout(RequestException):
+    &#34;&#34;&#34;The request timed out.
+    Catching this error will catch both
+    :exc:`~requests.exceptions.ConnectTimeout` and
+    :exc:`~requests.exceptions.ReadTimeout` errors.
+    &#34;&#34;&#34;
+
+
+class ConnectTimeout(ConnectionError, Timeout):
+    &#34;&#34;&#34;The request timed out while trying to connect to the remote server.
+    Requests that produced this error are safe to retry.
+    &#34;&#34;&#34;
+
+
+class ReadTimeout(Timeout):
+    &#34;&#34;&#34;The server did not send any data in the allotted amount of time.&#34;&#34;&#34;
+
+
+class URLRequired(RequestException):
+    &#34;&#34;&#34;A valid URL is required to make a request.&#34;&#34;&#34;
+
+
+class TooManyRedirects(RequestException):
+    &#34;&#34;&#34;Too many redirects.&#34;&#34;&#34;
+
+
+class MissingSchema(RequestException, ValueError):
+    &#34;&#34;&#34;The URL schema (e.g. http or https) is missing.&#34;&#34;&#34;
+
+
+class InvalidSchema(RequestException, ValueError):
+    &#34;&#34;&#34;See defaults.py for valid schemas.&#34;&#34;&#34;
+
+
+class InvalidURL(RequestException, ValueError):
+    &#34;&#34;&#34;The URL provided was somehow invalid.&#34;&#34;&#34;
+
+
+class InvalidHeader(RequestException, ValueError):
+    &#34;&#34;&#34;The header value provided was somehow invalid.&#34;&#34;&#34;
+
+
+class InvalidProxyURL(InvalidURL):
+    &#34;&#34;&#34;The proxy URL provided is invalid.&#34;&#34;&#34;
+
+
+class ChunkedEncodingError(RequestException):
+    &#34;&#34;&#34;The server declared chunked encoding but sent an invalid chunk.&#34;&#34;&#34;
+
+
+class ContentDecodingError(RequestException, BaseHTTPError):
+    &#34;&#34;&#34;Failed to decode response content&#34;&#34;&#34;
+
+
+class StreamConsumedError(RequestException, TypeError):
+    &#34;&#34;&#34;The content for this response was already consumed&#34;&#34;&#34;
+
+
+class RetryError(RequestException):
+    &#34;&#34;&#34;Custom retries logic failed&#34;&#34;&#34;
+
+
+class UnrewindableBodyError(RequestException):
+    &#34;&#34;&#34;Requests encountered an error when trying to rewind a body&#34;&#34;&#34;
+
+# Warnings
+
+
+class RequestsWarning(Warning):
+    &#34;&#34;&#34;Base warning for Requests.&#34;&#34;&#34;
+    pass
+
+
+class FileModeWarning(RequestsWarning, DeprecationWarning):
+    &#34;&#34;&#34;A file was opened in text mode, but Requests determined its binary length.&#34;&#34;&#34;
+    pass
+
+
+class RequestsDependencyWarning(RequestsWarning):
+    &#34;&#34;&#34;An imported dependency doesn&#39;t match the expected version range.&#34;&#34;&#34;
+    pass</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="visa_dps.exceptions.ChunkedEncodingError"><code class="flex name class">
+<span>class <span class="ident">ChunkedEncodingError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>The server declared chunked encoding but sent an invalid chunk.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ChunkedEncodingError(RequestException):
+    &#34;&#34;&#34;The server declared chunked encoding but sent an invalid chunk.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.ConnectTimeout"><code class="flex name class">
+<span>class <span class="ident">ConnectTimeout</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>The request timed out while trying to connect to the remote server.
+Requests that produced this error are safe to retry.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ConnectTimeout(ConnectionError, Timeout):
+    &#34;&#34;&#34;The request timed out while trying to connect to the remote server.
+    Requests that produced this error are safe to retry.
+    &#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.ConnectionError" href="#visa_dps.exceptions.ConnectionError">ConnectionError</a></li>
+<li><a title="visa_dps.exceptions.Timeout" href="#visa_dps.exceptions.Timeout">Timeout</a></li>
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.ConnectionError"><code class="flex name class">
+<span>class <span class="ident">ConnectionError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>A Connection error occurred.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ConnectionError(RequestException):
+    &#34;&#34;&#34;A Connection error occurred.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.ProxyError" href="#visa_dps.exceptions.ProxyError">ProxyError</a></li>
+<li><a title="visa_dps.exceptions.SSLError" href="#visa_dps.exceptions.SSLError">SSLError</a></li>
+<li><a title="visa_dps.exceptions.ConnectTimeout" href="#visa_dps.exceptions.ConnectTimeout">ConnectTimeout</a></li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.ContentDecodingError"><code class="flex name class">
+<span>class <span class="ident">ContentDecodingError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Failed to decode response content</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ContentDecodingError(RequestException, BaseHTTPError):
+    &#34;&#34;&#34;Failed to decode response content&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>urllib3.exceptions.HTTPError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.FileModeWarning"><code class="flex name class">
+<span>class <span class="ident">FileModeWarning</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>A file was opened in text mode, but Requests determined its binary length.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FileModeWarning(RequestsWarning, DeprecationWarning):
+    &#34;&#34;&#34;A file was opened in text mode, but Requests determined its binary length.&#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestsWarning" href="#visa_dps.exceptions.RequestsWarning">RequestsWarning</a></li>
+<li>builtins.DeprecationWarning</li>
+<li>builtins.Warning</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.HTTPError"><code class="flex name class">
+<span>class <span class="ident">HTTPError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>An HTTP error occurred.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class HTTPError(RequestException):
+    &#34;&#34;&#34;An HTTP error occurred.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.InvalidHeader"><code class="flex name class">
+<span>class <span class="ident">InvalidHeader</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>The header value provided was somehow invalid.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InvalidHeader(RequestException, ValueError):
+    &#34;&#34;&#34;The header value provided was somehow invalid.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.ValueError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.InvalidProxyURL"><code class="flex name class">
+<span>class <span class="ident">InvalidProxyURL</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>The proxy URL provided is invalid.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InvalidProxyURL(InvalidURL):
+    &#34;&#34;&#34;The proxy URL provided is invalid.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.InvalidURL" href="#visa_dps.exceptions.InvalidURL">InvalidURL</a></li>
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.ValueError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.InvalidSchema"><code class="flex name class">
+<span>class <span class="ident">InvalidSchema</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>See defaults.py for valid schemas.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InvalidSchema(RequestException, ValueError):
+    &#34;&#34;&#34;See defaults.py for valid schemas.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.ValueError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.InvalidURL"><code class="flex name class">
+<span>class <span class="ident">InvalidURL</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>The URL provided was somehow invalid.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class InvalidURL(RequestException, ValueError):
+    &#34;&#34;&#34;The URL provided was somehow invalid.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.ValueError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.InvalidProxyURL" href="#visa_dps.exceptions.InvalidProxyURL">InvalidProxyURL</a></li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.MissingSchema"><code class="flex name class">
+<span>class <span class="ident">MissingSchema</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>The URL schema (e.g. http or https) is missing.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class MissingSchema(RequestException, ValueError):
+    &#34;&#34;&#34;The URL schema (e.g. http or https) is missing.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.ValueError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.ProxyError"><code class="flex name class">
+<span>class <span class="ident">ProxyError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>A proxy error occurred.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ProxyError(ConnectionError):
+    &#34;&#34;&#34;A proxy error occurred.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.ConnectionError" href="#visa_dps.exceptions.ConnectionError">ConnectionError</a></li>
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.ReadTimeout"><code class="flex name class">
+<span>class <span class="ident">ReadTimeout</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>The server did not send any data in the allotted amount of time.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ReadTimeout(Timeout):
+    &#34;&#34;&#34;The server did not send any data in the allotted amount of time.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.Timeout" href="#visa_dps.exceptions.Timeout">Timeout</a></li>
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.RequestException"><code class="flex name class">
+<span>class <span class="ident">RequestException</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>There was an ambiguous exception that occurred while handling your
+request.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RequestException(IOError):
+    &#34;&#34;&#34;There was an ambiguous exception that occurred while handling your
+    request.
+    &#34;&#34;&#34;
+
+    def __init__(self, *args, **kwargs):
+        &#34;&#34;&#34;Initialize RequestException with `request` and `response` objects.&#34;&#34;&#34;
+        response = kwargs.pop(&#39;response&#39;, None)
+        self.response = response
+        self.request = kwargs.pop(&#39;request&#39;, None)
+        if (response is not None and not self.request and
+                hasattr(response, &#39;request&#39;)):
+            self.request = self.response.request
+        super(RequestException, self).__init__(*args, **kwargs)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.OSError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.HTTPError" href="#visa_dps.exceptions.HTTPError">HTTPError</a></li>
+<li><a title="visa_dps.exceptions.ConnectionError" href="#visa_dps.exceptions.ConnectionError">ConnectionError</a></li>
+<li><a title="visa_dps.exceptions.Timeout" href="#visa_dps.exceptions.Timeout">Timeout</a></li>
+<li><a title="visa_dps.exceptions.URLRequired" href="#visa_dps.exceptions.URLRequired">URLRequired</a></li>
+<li><a title="visa_dps.exceptions.TooManyRedirects" href="#visa_dps.exceptions.TooManyRedirects">TooManyRedirects</a></li>
+<li><a title="visa_dps.exceptions.MissingSchema" href="#visa_dps.exceptions.MissingSchema">MissingSchema</a></li>
+<li><a title="visa_dps.exceptions.InvalidSchema" href="#visa_dps.exceptions.InvalidSchema">InvalidSchema</a></li>
+<li><a title="visa_dps.exceptions.InvalidURL" href="#visa_dps.exceptions.InvalidURL">InvalidURL</a></li>
+<li><a title="visa_dps.exceptions.InvalidHeader" href="#visa_dps.exceptions.InvalidHeader">InvalidHeader</a></li>
+<li><a title="visa_dps.exceptions.ChunkedEncodingError" href="#visa_dps.exceptions.ChunkedEncodingError">ChunkedEncodingError</a></li>
+<li><a title="visa_dps.exceptions.ContentDecodingError" href="#visa_dps.exceptions.ContentDecodingError">ContentDecodingError</a></li>
+<li><a title="visa_dps.exceptions.StreamConsumedError" href="#visa_dps.exceptions.StreamConsumedError">StreamConsumedError</a></li>
+<li><a title="visa_dps.exceptions.RetryError" href="#visa_dps.exceptions.RetryError">RetryError</a></li>
+<li><a title="visa_dps.exceptions.UnrewindableBodyError" href="#visa_dps.exceptions.UnrewindableBodyError">UnrewindableBodyError</a></li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.RequestsDependencyWarning"><code class="flex name class">
+<span>class <span class="ident">RequestsDependencyWarning</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>An imported dependency doesn't match the expected version range.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RequestsDependencyWarning(RequestsWarning):
+    &#34;&#34;&#34;An imported dependency doesn&#39;t match the expected version range.&#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestsWarning" href="#visa_dps.exceptions.RequestsWarning">RequestsWarning</a></li>
+<li>builtins.Warning</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.RequestsWarning"><code class="flex name class">
+<span>class <span class="ident">RequestsWarning</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Base warning for Requests.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RequestsWarning(Warning):
+    &#34;&#34;&#34;Base warning for Requests.&#34;&#34;&#34;
+    pass</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Warning</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.FileModeWarning" href="#visa_dps.exceptions.FileModeWarning">FileModeWarning</a></li>
+<li><a title="visa_dps.exceptions.RequestsDependencyWarning" href="#visa_dps.exceptions.RequestsDependencyWarning">RequestsDependencyWarning</a></li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.RetryError"><code class="flex name class">
+<span>class <span class="ident">RetryError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Custom retries logic failed</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RetryError(RequestException):
+    &#34;&#34;&#34;Custom retries logic failed&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.SSLError"><code class="flex name class">
+<span>class <span class="ident">SSLError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>An SSL error occurred.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SSLError(ConnectionError):
+    &#34;&#34;&#34;An SSL error occurred.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.ConnectionError" href="#visa_dps.exceptions.ConnectionError">ConnectionError</a></li>
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.StreamConsumedError"><code class="flex name class">
+<span>class <span class="ident">StreamConsumedError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>The content for this response was already consumed</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class StreamConsumedError(RequestException, TypeError):
+    &#34;&#34;&#34;The content for this response was already consumed&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.TypeError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.Timeout"><code class="flex name class">
+<span>class <span class="ident">Timeout</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>The request timed out.
+Catching this error will catch both
+:exc:<code>~requests.exceptions.ConnectTimeout</code> and
+:exc:<code>~requests.exceptions.ReadTimeout</code> errors.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Timeout(RequestException):
+    &#34;&#34;&#34;The request timed out.
+    Catching this error will catch both
+    :exc:`~requests.exceptions.ConnectTimeout` and
+    :exc:`~requests.exceptions.ReadTimeout` errors.
+    &#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.ConnectTimeout" href="#visa_dps.exceptions.ConnectTimeout">ConnectTimeout</a></li>
+<li><a title="visa_dps.exceptions.ReadTimeout" href="#visa_dps.exceptions.ReadTimeout">ReadTimeout</a></li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.TooManyRedirects"><code class="flex name class">
+<span>class <span class="ident">TooManyRedirects</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Too many redirects.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TooManyRedirects(RequestException):
+    &#34;&#34;&#34;Too many redirects.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.URLRequired"><code class="flex name class">
+<span>class <span class="ident">URLRequired</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>A valid URL is required to make a request.</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class URLRequired(RequestException):
+    &#34;&#34;&#34;A valid URL is required to make a request.&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="visa_dps.exceptions.UnrewindableBodyError"><code class="flex name class">
+<span>class <span class="ident">UnrewindableBodyError</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<section class="desc"><p>Requests encountered an error when trying to rewind a body</p>
+<p>Initialize RequestException with <code>request</code> and <code>response</code> objects.</p></section>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UnrewindableBodyError(RequestException):
+    &#34;&#34;&#34;Requests encountered an error when trying to rewind a body&#34;&#34;&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></li>
+<li>builtins.OSError</li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="visa_dps" href="index.html">visa_dps</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="visa_dps.exceptions.ChunkedEncodingError" href="#visa_dps.exceptions.ChunkedEncodingError">ChunkedEncodingError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.ConnectTimeout" href="#visa_dps.exceptions.ConnectTimeout">ConnectTimeout</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.ConnectionError" href="#visa_dps.exceptions.ConnectionError">ConnectionError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.ContentDecodingError" href="#visa_dps.exceptions.ContentDecodingError">ContentDecodingError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.FileModeWarning" href="#visa_dps.exceptions.FileModeWarning">FileModeWarning</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.HTTPError" href="#visa_dps.exceptions.HTTPError">HTTPError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.InvalidHeader" href="#visa_dps.exceptions.InvalidHeader">InvalidHeader</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.InvalidProxyURL" href="#visa_dps.exceptions.InvalidProxyURL">InvalidProxyURL</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.InvalidSchema" href="#visa_dps.exceptions.InvalidSchema">InvalidSchema</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.InvalidURL" href="#visa_dps.exceptions.InvalidURL">InvalidURL</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.MissingSchema" href="#visa_dps.exceptions.MissingSchema">MissingSchema</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.ProxyError" href="#visa_dps.exceptions.ProxyError">ProxyError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.ReadTimeout" href="#visa_dps.exceptions.ReadTimeout">ReadTimeout</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.RequestException" href="#visa_dps.exceptions.RequestException">RequestException</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.RequestsDependencyWarning" href="#visa_dps.exceptions.RequestsDependencyWarning">RequestsDependencyWarning</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.RequestsWarning" href="#visa_dps.exceptions.RequestsWarning">RequestsWarning</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.RetryError" href="#visa_dps.exceptions.RetryError">RetryError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.SSLError" href="#visa_dps.exceptions.SSLError">SSLError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.StreamConsumedError" href="#visa_dps.exceptions.StreamConsumedError">StreamConsumedError</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.Timeout" href="#visa_dps.exceptions.Timeout">Timeout</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.TooManyRedirects" href="#visa_dps.exceptions.TooManyRedirects">TooManyRedirects</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.URLRequired" href="#visa_dps.exceptions.URLRequired">URLRequired</a></code></h4>
+</li>
+<li>
+<h4><code><a title="visa_dps.exceptions.UnrewindableBodyError" href="#visa_dps.exceptions.UnrewindableBodyError">UnrewindableBodyError</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.2</a>.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad()</script>
+</body>
+</html>
