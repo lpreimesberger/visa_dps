@@ -15,7 +15,7 @@ import sys
 from setuptools import setup, find_packages
 
 NAME = "visa_api"
-VERSION = "0.0.1"
+VERSION = "0.0.2"
 # To install the library, run the following
 #
 # python setup.py install
@@ -36,6 +36,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     long_description="""\
-    Manage cardholder’s card and account information, notification settings, and balance information.
+    Current - manages pre-paid debit card services.
     """
 )
